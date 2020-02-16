@@ -1,0 +1,100 @@
+
+
+
+/* Links
+ * ------------------------------------	 */
+a {
+  color: #00448b;
+  text-decoration: none;
+  outline: 0; }
+
+a:hover, a:focus {
+  color: #ff7c0a; }
+
+/* Selection colors (easy to forget)
+ * ------------------------------------	 */
+::selection {
+  background: #f1e2d6; }
+
+::-moz-selection {
+  background: #f1e2d6; }
+
+img::selection {
+  background: transparent; }
+
+img::-moz-selection {
+  background: transparent; }
+
+body {
+  -webkit-tap-highlight-color: #f1e2d6; }
+
+/* Basic Styles
+ * ------------------------------------	 */
+body {
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Open Sans" sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%; }
+
+svg {
+  height: 100%;
+  width: 100%; }
+
+h3 {
+  color: #e1c285;
+  text-align: center;
+  padding: 10px 0 10px; }
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none; }
+
+@media screen and (max-width: 480px) {
+  h3 {
+    padding: 10px 0 10px; } }
+
+h3, header nav a, header .kicker, footer .lockup .content-wrap a {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+header, footer {
+  background-repeat: no-repeat, no-repeat;
+  background-size: 50px 50px, cover;
+  background-position: 30px 50px, 50% 50%;
+  background-blend-mode: overlay, normal; }
+
+  header .logo {
+    float: left;
+    }
+    header .logo path {
+      fill: rgba(0, 0, 0, 0.4); }
+  header .kicker {
+    text-align: center;
+    letter-spacing: 0.05em;
+    line-height: 1; }
+
+
+
+.section-contact {
+  text-align: center; }
+
+.bar {
+  width: 250px;
+  height: 0px;
+  border-top: 4px solid #c99065;
+  margin: 0px auto 10px; }
+
+.biglink {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  width: 90%;
+  margin: 0 auto; }
+
+

@@ -1,0 +1,183 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body,header * {
+	margin:0;
+	padding:0;
+	list-style:none;
+	box-sizing:border-box;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+	width:100%;
+	float:left;
+	background: #fff;
+	border-bottom: 2px solid #9eceff;
+}
+
+.logo {
+	display:table;
+	width:20ex;
+	height:10ex;
+	padding:0;
+	text-decoration:none;
+	color:white;
+	position: relative;
+}
+
+.logo img {
+	display: table-cell;
+	vertical-align:middle;
+	height:100%;
+	padding: 1em 0em;
+}
+
+.vcenter {
+	max-height: 100%;  
+	height: auto;
+	position: absolute;  
+	top: 0;  
+	bottom: 0;  
+	left: 0;  
+	right: 0;  
+	margin: auto;
+}
+
+.container {
+	background-color:black;
+
+}
+
+nav {
+	width:auto;
+	float:left;
+	overflow:hidden;
+	transition:height .2s ease-in-out;
+	text-align: center;
+}
+
+nav .breadcrumb {
+	display: table-row;
+	text-align: left;
+}
+
+nav .breadcrumb * {
+	font-weight: 100;
+	text-transform: none;
+}
+
+nav ul {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+nav li {
+	float:left;
+	width:100%;
+}
+
+nav ul a {
+	display:block;
+	height:100%;
+	width:100%;
+	padding:0.5em;
+	text-decoration:none;
+	color:#00448b;
+}
+
+.nav-toggle {
+	background:rgba(1,1,1,0);
+	display:block;
+	position:absolute;
+	right:0;
+	top:0;
+	padding:1em;
+	font-size: 1.5em;
+	color:#00448b;
+	cursor:pointer;
+	text-decoration:none;
+}
+
+#nav-open:target .nav-closed {
+	display:block;
+}
+
+.nav-closed,
+#nav-closed:target .nav-closed,
+#nav-open:target .nav-open {
+	display:none;
+}
+
+
+/* https://stackoverflow.com/a/38106970/1562506 */
+.dst[id]:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -20ex; 
+  height: 20ex; 
+  visibility: hidden; 
+}
+
+@media screen and (max-width: 499px) {
+	#nav-open:target nav {
+		height:220px;
+	}
+
+	nav {
+		height:0;
+	}
+
+	nav ul a {
+		padding: 0.5em;
+		border-top: 2px solid #9eceff;
+	}
+}
+
+@media screen and (min-width:500px) {
+	
+	.nav-toggle {display:none !important;}
+
+	nav {
+		width: auto;
+		width: calc(100% - 20ex);
+		align: right;
+		float:right;
+		display:table;
+		height: 5em;
+	}
+
+	.dst[id]:before { 
+		margin-top: -100px; 
+		height: 100px; 
+	}
+
+	nav li {
+		display: inline-block;
+		width:auto;
+		padding:0;	
+	}
+
+	nav ul a {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+header {
+	position: fixed;
+}
+
+header.placeholder {
+	position: static;
+}
+
+
+
+/* IE10+ fix */
+@media screen and (max-width: 499px) and (-ms-high-contrast: active), screen and (max-width: 499px) and (-ms-high-contrast: none){
+	nav {
+		margin-top: 5em;
+	}
+}

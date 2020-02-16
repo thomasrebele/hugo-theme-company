@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+	<head>
+		{{ partial "head.html" . }}
+	</head>
+	<body id="nav-open">
+		<div id="main">
+			{{ partial "header.html"  . }}
+
+			<img id="banner" src="{{ "images/banner.jpg" | absURL }}"/>
+
+		  <div id="content">
+			  {{ with .Params.Headline }}
+				  <h1>{{ . }}</h1>
+			  {{ else }}
+				  <h1>{{ .Title }}</h1>
+			  {{ end }}
+				{{ partial "render.html" . }}
+
+			{{ if not .IsPage }}
+			<!-- Show list of sections -->
+			{{ with .Sections }}
+				{{ range (.ByParam "order") }}
+				<h1 id="{{ .Section }}" class="dst"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+				{{ .Render "summary" }}
+				{{ end }}
+			{{ end }}
+
+
+			<!-- Show list of pages -->
+			<!-- get non-nested pages of current section --> 
+			{{ $sectionPages := where .Data.Pages "Section" .Section }}
+			{{ $paginator := .Paginate $sectionPages }}
+			{{ range $paginator.Pages }}
+			<div>
+				{{ if .Params.image }}
+				<a href="{{ .RelPermalink }}">
+					<img src="/img/{{ .Params.image }}" class="article-banner">
+				</a>
+				{{end}}
+				<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+				<div class="article-style"><p>{{ .Render "summary" }}</p></div>
+			</div>
+			{{ end }}
+			{{ end }}
+
+
+			</div>
+		</div>
+		{{ partial "footer.html"  . }}
+
+		<script src="/js/fix.js"></script>
+	</body>
+
+
+</html>
+
+
+{{/*{{ printf "%#v" .Params}}*/}}
+
+

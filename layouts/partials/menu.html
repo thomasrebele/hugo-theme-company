@@ -1,0 +1,38 @@
+
+
+<a href="/" class="logo"><img class="vcenter" src="{{ "images/logo.png" | absURL }}"/></a>
+<nav>
+	<div  class="breadcrumb">
+		{{ partial "breadcrumb" . }}<br/>
+	</div>
+	<div class="sections">
+	<ul>
+			{{ $currentPage := . }}
+			{{ range .Site.Menus.main }}
+			<li><a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+			{{ end }}
+		<!--{{ if eq 0 (len .Sections) }}
+			NONE
+		{{ else }}
+			{{ with .Sections }}
+				{{ range . }}
+				{{ $s := .RelPermalink }}
+				{{ $s := $s | replaceRE ".*/([^/]*)/" "$1" }}
+				<li><a href="#{{ $s }}">{{ .Title }}</a></li>
+				{{ end }}
+			{{ end }}
+		{{ end }}-->
+
+	</ul>
+	</div>
+</nav>
+
+{{/*{{ printf "%#v" .}}*/}}
+
+<div>
+<a id="nav-open" class="nav-toggle nav-open" href="#nav-open">Menü</a>
+<a id="nav-close" class="nav-toggle nav-closed" href="#nav-closed">Menü</a>
+</div>
+
+
+

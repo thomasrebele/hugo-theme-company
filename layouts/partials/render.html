@@ -1,0 +1,10 @@
+{{ $s := .RawContent }}
+{{ $s :=  delimit (slice "\n" $s "\n") "" }}
+
+{{ $s :=  $s | replaceRE "\n(#+) " "\n#$1 " }}
+
+{{ $s :=  $s | markdownify }}
+{{ $s :=  $s | safeHTML }}
+
+{{- $s -}}
+

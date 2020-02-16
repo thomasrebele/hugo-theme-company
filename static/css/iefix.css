@@ -1,0 +1,14 @@
+
+
+#content-scroll {
+    position: relative;
+}
+
+
+@media screen and (max-width: 499px) {
+	nav {
+		height:200px;
+		margin-top: 5em;
+	}
+}
+

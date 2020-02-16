@@ -1,0 +1,21 @@
+<article class="post">
+
+{{ $.Scratch.Set "summary" "test" }}
+{{ with .Params.summary }}
+	{{ $s := (markdownify .) }}
+	{{ $.Scratch.Set "summary" $s }}
+{{ else }}
+	{{ $s := .RawContent }}
+	{{ $s := $s | truncate (default 350 .Site.Params.summary_length) }}
+	{{ $s := $s | markdownify }}
+	{{ $s := $s | replaceRE "(^\\s*)?</?[^a/][^>]*>" "" | replaceRE "^\\s*" "" }}
+	{{ $s := $s | replaceRE "\\.?\\s*\n\n" ". " | replaceRE "([^a-zA-Z])\\." "$1" | replaceRE "<[^>]*\\n" "" }}
+	{{ $s := $s | replaceRE "&amp;" "&"  }}
+	{{ $s := $s | markdownify }}
+
+	{{ $.Scratch.Set "summary" $s }}
+{{ end }}
+{{ $.Scratch.Get "summary" }}
+
+  &emsp;<a href='{{ .RelPermalink }}'><nobr>mehr →</nobr></a>
+</article>

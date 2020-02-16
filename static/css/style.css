@@ -1,0 +1,32 @@
+
+body{
+margin: 0 auto !important;
+float: none !important;
+}
+
+body, header {
+	max-width: 150ex;
+}
+
+#content {
+	margin: 5em;
+}
+
+
+#banner {
+	display: block;
+	width: 100%;
+}
+
+
+.placeholder {
+	visibility:  hidden;
+}
+
+footer {
+  background: #e5eaee;
+  padding: 20px; 
+  text-align: center;
+}
+
+
