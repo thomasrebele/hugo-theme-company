@@ -1,6 +1,11 @@
 <article class="post">
 
-{{ $.Scratch.Set "summary" "test" }}
+	{{ .Summary | markdownify }}
+&emsp;<a href='{{ .RelPermalink }}'><nobr>{{ i18n "more" }} →</nobr></a>
+</article>
+
+{{/*old summary code*/}}
+{{/*{{ $.Scratch.Set "summary" "test" }}
 {{ with .Params.summary }}
 	{{ $s := (markdownify .) }}
 	{{ $.Scratch.Set "summary" $s }}
@@ -16,6 +21,6 @@
 	{{ $.Scratch.Set "summary" $s }}
 {{ end }}
 {{ $.Scratch.Get "summary" }}
+*/}}
 
-&emsp;<a href='{{ .RelPermalink }}'><nobr>{{ i18n "more" }} →</nobr></a>
-</article>
+
