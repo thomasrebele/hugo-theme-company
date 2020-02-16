@@ -1,10 +1,7 @@
 
 
-<a href="/" class="logo"><img class="vcenter" src="{{ "images/logo.png" | absURL }}"/></a>
+<a href="{{ "" | absURL }}" class="logo"><img class="vcenter" src="{{ "images/logo.png" | absURL }}"/></a>
 <nav>
-	<div  class="breadcrumb">
-		{{ partial "breadcrumb" . }}<br/>
-	</div>
 	<div class="sections">
 	<ul>
 			{{ $currentPage := . }}
@@ -24,6 +21,9 @@
 		{{ end }}-->
 
 	</ul>
+	</div>
+	<div  class="breadcrumb">
+		{{ partial "breadcrumb" . }}<br/>
 	</div>
 </nav>
 
