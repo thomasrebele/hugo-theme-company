@@ -3,7 +3,8 @@
 <a href="{{ "" | absURL }}" class="logo"><img class="vcenter" src="{{ "images/logo.png" | absURL }}"/></a>
 <nav>
 	<div class="sections">
-	<ul>
+	{{ partial "banner-pre.html" . }}
+		<ul>
 			{{ $currentPage := . }}
 			{{ range .Site.Menus.main }}
 			<li><a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
@@ -20,7 +21,7 @@
 			{{ end }}
 		{{ end }}-->
 
-	</ul>
+		</ul>
 	</div>
 	<div  class="breadcrumb">
 		{{ partial "breadcrumb" . }}<br/>

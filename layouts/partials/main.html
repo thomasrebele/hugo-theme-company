@@ -7,9 +7,10 @@
 		<div id="main">
 			{{ partial "header.html"  . }}
 
-			<img id="banner" src="{{ "images/banner.jpg" | absURL }}"/>
+			{{ partial "banner-post.html" . }}
 
 		  <div id="content">
+
 			  {{ with .Params.Headline }}
 				  <h1>{{ . }}</h1>
 			  {{ else }}
@@ -17,31 +18,34 @@
 			  {{ end }}
 				{{ partial "render.html" . }}
 
+			{{ $showPageList := .Params.show_pages | default true }}
+			{{ if $showPageList }}
 			{{ if not .IsPage }}
-			<!-- Show list of sections -->
-			{{ with .Sections }}
-				{{ range (.ByParam "order") }}
-				<h1 id="{{ .Section }}" class="dst"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-				{{ .Render "summary" }}
+				<!-- Show list of sections -->
+				{{ with .Sections }}
+					{{ range (.ByParam "order") }}
+					<h1 id="{{ .Section }}" class="dst"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+					{{ .Render "summary" }}
+					{{ end }}
 				{{ end }}
-			{{ end }}
 
 
-			<!-- Show list of pages -->
-			<!-- get non-nested pages of current section --> 
-			{{ $sectionPages := where .Data.Pages "Section" .Section }}
-			{{ $paginator := .Paginate $sectionPages }}
-			{{ range $paginator.Pages }}
-			<div>
-				{{ if .Params.image }}
-				<a href="{{ .RelPermalink }}">
-					<img src="/img/{{ .Params.image }}" class="article-banner">
-				</a>
-				{{end}}
-				<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-				<div class="article-style"><p>{{ .Render "summary" }}</p></div>
-			</div>
-			{{ end }}
+				<!-- Show list of pages -->
+				<!-- get non-nested pages of current section -->
+				{{ $sectionPages := where .Data.Pages "Section" .Section }}
+				{{ $paginator := .Paginate $sectionPages }}
+				{{ range $paginator.Pages }}
+				<div>
+					{{ if .Params.image }}
+					<a href="{{ .RelPermalink }}">
+						<img src="/img/{{ .Params.image }}" class="article-banner">
+					</a>
+					{{end}}
+					<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+					<div class="article-style"><p>{{ .Render "summary" }}</p></div>
+				</div>
+				{{ end }}
+				{{ end }}
 			{{ end }}
 
 
