@@ -1,7 +1,7 @@
 
 body{
-margin: 0 auto !important;
-float: none !important;
+	margin: 0 auto !important;
+	float: none !important;
 }
 
 body, header {
@@ -10,6 +10,7 @@ body, header {
 
 #content {
 	margin: 5em;
+	display: block;
 }
 
 
