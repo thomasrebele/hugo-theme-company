@@ -49,7 +49,7 @@ header {
 }
 
 nav {
-	width:auto;
+	width: 100%;
 	overflow:hidden;
 	transition:height .2s ease-in-out;
 	text-align: center;
@@ -109,6 +109,10 @@ nav ul a {
 	display:none;
 }
 
+.sections {
+	display: flex;
+	justify-content: center;
+}
 
 @media screen and (max-width: 499px) {
 	#nav-open:target nav {
@@ -130,8 +134,7 @@ nav ul a {
 	.nav-toggle {display:none !important;}
 
 	nav {
-		width: auto;
-		width: calc(100% - 20ex);
+		width: 100%;
 		align: right;
 		display:table;
 		height: 5em;

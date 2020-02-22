@@ -1,5 +1,18 @@
 
 
+.button, .button:visited, .button:focus
+{
+  background-color: #00448b;
+  color: white;
+  border-radius: 1ex;
+  padding: 1ex;
+  margin: 1ex;
+}
+
+.button:hover {
+  background-color: CornflowerBlue;
+}
+
 
 /* Links
  * ------------------------------------	 */
@@ -9,7 +22,7 @@ a {
   outline: 0; }
 
 a:hover, a:focus {
-  color: #ff7c0a; }
+  color: CornflowerBlue; }
 
 /* Selection colors (easy to forget)
  * ------------------------------------	 */
@@ -96,5 +109,6 @@ header, footer {
   line-height: 1;
   width: 90%;
   margin: 0 auto; }
+
 
 

@@ -17,6 +17,7 @@ body, header {
 #banner {
 	display: block;
 	max-height: 20ex;
+	text-align: center;
 }
 
 
