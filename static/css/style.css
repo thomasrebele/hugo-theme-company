@@ -10,6 +10,7 @@ body, header {
 
 #content {
 	margin: 5em;
+	margin-top: 2em;
 	display: block;
 }
 

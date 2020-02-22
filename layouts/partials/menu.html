@@ -28,14 +28,14 @@
 
 		</ul>
 	</div>
-	<br/>
+	{{ $breadcrumb := .Site.Params.breadcrumb | default true }}
+	{{ if $breadcrumb }}
 	<div  class="breadcrumb">
 		{{ partial "breadcrumb" . }}<br/>
 	</div>
+	{{ end }}
 	</div>
 </nav>
-
-{{/*{{ printf "%#v" .}}*/}}
 
 <div>
 	<a id="nav-open" class="nav-toggle nav-open" href="#nav-open">{{ i18n "menu" }}</a>

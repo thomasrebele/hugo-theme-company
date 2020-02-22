@@ -13,7 +13,7 @@ body,header * {
 header {
 	width:100%;
 	background: #fff;
-	border-bottom: 2px solid #9eceff;
+	/*border-bottom: 2px solid #9eceff;*/
 }
 
 .logo {
@@ -112,6 +112,8 @@ nav ul a {
 .sections {
 	display: flex;
 	justify-content: center;
+	margin: 1em 0em;
+	background-color: #dddddd;
 }
 
 @media screen and (max-width: 499px) {
