@@ -32,4 +32,17 @@ footer {
   text-align: center;
 }
 
+@media screen and (max-width: 30em) {
+	#content {
+		margin: 2em;
+	}
+}
+
+@media screen and (max-width: 15em) {
+	#content {
+		margin: 1em;
+	}
+}
+
+
 
