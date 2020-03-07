@@ -149,8 +149,16 @@ nav .breadcrumb * {
 	position: -o-sticky; 
 	position: sticky; 
 	top: 0;
-
 }
+
+:target::before {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 1ex; /* fixed header height*/
+  margin: -1ex 0 0; /* negative fixed header height */
+}
+
 
 /* IE10+ fix */
 @media screen and (max-width: 599px) and (-ms-high-contrast: active), screen and (max-width: 599px) and (-ms-high-contrast: none){
@@ -158,3 +166,4 @@ nav .breadcrumb * {
 		margin-top: 5em;
 	}
 }
+
