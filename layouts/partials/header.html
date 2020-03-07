@@ -9,7 +9,7 @@
 <div class="menu">
 	{{ $currentPage := . }}
 	{{ range .Site.Menus.main }}
-	<span class="menu-item"><a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></span> 
+	<a class="menu-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
 	{{ end }}
 	<!--{{ if eq 0 (len .Sections) }}
 		NONE

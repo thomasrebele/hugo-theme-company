@@ -66,14 +66,19 @@ nav .breadcrumb * {
 	list-style-type: none;
 }
 
-.menu .menu-item a {
+.menu .menu-item {
 	display:block;
 	height:100%;
 	width:100%;
-	padding:0.5em;
+	padding: .5em 1em;
 	text-decoration:none;
 	color:white;
 	font-weight: 1000;
+}
+
+
+.menu .menu-item:hover {
+  background-color: CornflowerBlue;
 }
 
 /* menu toggle */
@@ -134,10 +139,8 @@ nav .breadcrumb * {
 
 	.menu .menu-item {
 		width:100%;
-		padding-left: 0px;
 		display: inline-block;
 		width:auto;
-		padding:0;	
 	}
 }
 
