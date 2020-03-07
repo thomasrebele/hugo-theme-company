@@ -86,9 +86,10 @@ nav ul a {
 	color:#00448b;
 }
 
-.nav-toggle {
+/* menu toggle */
+
+.menu-button {
 	background:rgba(1,1,1,0);
-	display:block;
 	position:absolute;
 	right:0;
 	top:0;
@@ -97,16 +98,11 @@ nav ul a {
 	color:#00448b;
 	cursor:pointer;
 	text-decoration:none;
-}
-
-#nav-open:target .nav-closed {
-	display:block;
-}
-
-.nav-closed,
-#nav-closed:target .nav-closed,
-#nav-open:target .nav-open {
 	display:none;
+}
+
+#menu-toggle {
+	display: none;
 }
 
 .sections {
@@ -116,13 +112,17 @@ nav ul a {
 	background-color: #dddddd;
 }
 
-@media screen and (max-width: 499px) {
-	#nav-open:target nav {
+@media screen and (max-width: 599px) {
+	#menu-toggle:checked ~ div {
 		display: block;
 	}
 
-	nav {
+	#menu-toggle ~ div {
 		display: none;
+	}
+
+	.menu-button {
+		display: block;
 	}
 
 	nav ul a {
@@ -131,9 +131,9 @@ nav ul a {
 	}
 }
 
-@media screen and (min-width:500px) {
+@media screen and (min-width:600px) {
 	
-	.nav-toggle {display:none !important;}
+	.nav-button {display:none !important;}
 
 	nav {
 		width: 100%;
