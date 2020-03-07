@@ -44,17 +44,6 @@ header {
 
 }
 
-.menu-link-area {
-	display:block;
-}
-
-nav {
-	width: 100%;
-	overflow:hidden;
-	transition:height .2s ease-in-out;
-	text-align: center;
-}
-
 nav .breadcrumb {
 	display: block;
 	overflow: auto;
@@ -66,18 +55,18 @@ nav .breadcrumb * {
 	text-transform: none;
 }
 
-nav ul {
+
+.menu {
+	width: 100%;
+	overflow:hidden;
+	transition:height .2s ease-in-out;
+	text-align: center;
 	display: block;
 	vertical-align: middle;
-	overflow: auto;
+	list-style-type: none;
 }
 
-nav li {
-	float:left;
-	width:100%;
-}
-
-nav ul a {
+.menu .menu-item a {
 	display:block;
 	height:100%;
 	width:100%;
@@ -89,23 +78,24 @@ nav ul a {
 /* menu toggle */
 
 .menu-button {
-	background:rgba(1,1,1,0);
-	position:absolute;
+	background:white;
+	position:fixed;
 	right:0;
 	top:0;
-	padding:1em;
-	font-size: 1.5em;
-	color:#00448b;
+	padding:.2em .5em;
+	margin:.5em;
 	cursor:pointer;
 	text-decoration:none;
 	display:none;
+	border: 1px solid;
+	border-radius: 1ex;
 }
 
 #menu-toggle {
 	display: none;
 }
 
-.sections {
+.menu {
 	display: flex;
 	justify-content: center;
 	margin: 1em 0em;
@@ -113,11 +103,11 @@ nav ul a {
 }
 
 @media screen and (max-width: 599px) {
-	#menu-toggle:checked ~ div {
+	#menu-toggle:checked ~ .menu {
 		display: block;
 	}
 
-	#menu-toggle ~ div {
+	#menu-toggle ~ .menu {
 		display: none;
 	}
 
@@ -125,9 +115,8 @@ nav ul a {
 		display: block;
 	}
 
-	nav ul a {
+	.menu ul a {
 		padding: 0.5em;
-		border-top: 2px solid #9eceff;
 	}
 }
 
@@ -135,11 +124,10 @@ nav ul a {
 	
 	.nav-button {display:none !important;}
 
-	nav {
+	.menu {
 		width: 100%;
 		align: right;
 		display:table;
-		height: 5em;
 	}
 
 	.dst[id]:before { 
@@ -147,24 +135,38 @@ nav ul a {
 		height: 100px; 
 	}
 
-	nav li {
+	.menu .menu-item {
+		width:100%;
+		padding-left: 0px;
 		display: inline-block;
 		width:auto;
 		padding:0;	
 	}
 
-	nav ul a {
+	.menu ul a {
 		/*display: table-cell;*/
 		vertical-align: middle;
 		padding-left: 1em;
 		padding-right: 1em;
+		font-weight: 900;
 	}
 }
 
+/* sticky navbar */
+
+.menu {
+	position: -webkit-sticky; 
+	position: -moz-sticky; 
+	position: -ms-sticky; 
+	position: -o-sticky; 
+	position: sticky; 
+	top: 0;
+
+}
 
 /* IE10+ fix */
 @media screen and (max-width: 499px) and (-ms-high-contrast: active), screen and (max-width: 499px) and (-ms-high-contrast: none){
-	nav {
+	.menu {
 		margin-top: 5em;
 	}
 }

@@ -1,7 +1,36 @@
 {{ "<!-- Header section -->" | safeHTML }}
-<div id="header">
-<header>
-	{{ partial "menu.html"  . }}
-</header>
+
+{{ partial "banner-pre.html" . }}
+
+<!--<a href="{{ "" | absURL }}" class="logo"><img class="vcenter" src="{{ "images/logo.png" | absURL }}"/></a>-->
+
+<input id="menu-toggle" type="checkbox">
+
+<div class="menu">
+	{{ $currentPage := . }}
+	{{ range .Site.Menus.main }}
+	<span class="menu-item"><a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></span> 
+	{{ end }}
+	<!--{{ if eq 0 (len .Sections) }}
+		NONE
+	{{ else }}
+		{{ with .Sections }}
+			{{ range . }}
+			{{ $s := .RelPermalink }}
+			{{ $s := $s | replaceRE ".*/([^/]*)/" "$1" }}
+			<li><a href="#{{ $s }}">{{ .Title }}</a></li>
+			{{ end }}
+		{{ end }}
+	{{ end }}-->
 </div>
+
+{{ $breadcrumb := .Site.Params.breadcrumb | default true }}
+{{ if $breadcrumb }}
+<div  class="breadcrumb">
+	{{ partial "breadcrumb" . }}<br/>
+</div>
+{{ end }}
+
+<label class="menu-button button" for="menu-toggle">{{ i18n "menu" }}</label>
+
 
