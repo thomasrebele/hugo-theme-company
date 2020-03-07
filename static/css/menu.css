@@ -72,7 +72,7 @@ nav .breadcrumb * {
 	width:100%;
 	padding:0.5em;
 	text-decoration:none;
-	color:#00448b;
+	color:white;
 }
 
 /* menu toggle */
@@ -99,7 +99,7 @@ nav .breadcrumb * {
 	display: flex;
 	justify-content: center;
 	margin: 1em 0em;
-	background-color: #dddddd;
+	background-color: #00448b;
 }
 
 @media screen and (max-width: 599px) {
@@ -113,10 +113,6 @@ nav .breadcrumb * {
 
 	.menu-button {
 		display: block;
-	}
-
-	.menu ul a {
-		padding: 0.5em;
 	}
 }
 
@@ -142,14 +138,6 @@ nav .breadcrumb * {
 		width:auto;
 		padding:0;	
 	}
-
-	.menu ul a {
-		/*display: table-cell;*/
-		vertical-align: middle;
-		padding-left: 1em;
-		padding-right: 1em;
-		font-weight: 900;
-	}
 }
 
 /* sticky navbar */
@@ -165,7 +153,7 @@ nav .breadcrumb * {
 }
 
 /* IE10+ fix */
-@media screen and (max-width: 499px) and (-ms-high-contrast: active), screen and (max-width: 499px) and (-ms-high-contrast: none){
+@media screen and (max-width: 599px) and (-ms-high-contrast: active), screen and (max-width: 599px) and (-ms-high-contrast: none){
 	.menu {
 		margin-top: 5em;
 	}

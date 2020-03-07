@@ -4,72 +4,73 @@
 		{{ partial "head.html" . }}
 	</head>
 	<a id="top"></a>
-	<body id="nav-open">
+	<body>
 
-		<div id="main">
-			{{ partial "header.html"  . }}
+		{{ partial "header.html"  . }}
 
-			{{ partial "banner-post.html" . }}
+		{{ partial "banner-post.html" . }}
 
-		  <div id="content">
+		<div class="main-column">
+		<div id="content">
 
-			  {{ with .Params.Headline }}
-				  <h1>{{ . }}</h1>
-			  {{ else }}
-				  <h1>{{ .Title }}</h1>
-			  {{ end }}
+		  {{ with .Params.Headline }}
+			  <h1>{{ . }}</h1>
+		  {{ else }}
+			  <h1>{{ .Title }}</h1>
+		  {{ end }}
 
-			{{ if isset .Params "image" }}
-			<img src="{{ .Dir | absURL }}{{ .Params.image }}" class="article-banner">
-			{{ end }}
+		{{ if isset .Params "image" }}
+		<img src="{{ .Dir | absURL }}{{ .Params.image }}" class="article-banner">
+		{{ end }}
 
-				{{ partial "render.html" . }}
+			{{ partial "render.html" . }}
 
-			{{ $showPageList := .Params.show_pages | default true }}
-			{{ if $showPageList }}
-			{{ if not .IsPage }}
-				<!-- Show list of sections -->
-				{{ with .Sections }}
-					{{ range (.ByParam "order") }}
-					<h1 id="{{ .Section }}" class="dst"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-					{{ .Render "summary" }}
-					{{ end }}
-				{{ end }}
-
-
-				{{/* <!-- Show list of pages --> */}}
-				{{/* <!-- get non-nested pages of current section --> */}}
-				{{ $sectionPages := where .Data.Pages "Section" .Section }}
-
-				{{/* <!-- optional sorting --> */}}
-				{{ if isset .Params "order_by" }}
-					{{/* need '=' operator, otherwise value is only set within the if block */}}
-					{{ $sectionPages = $sectionPages.ByParam (.Param "order_by") }}
-				{{ end }}
-				{{ if isset .Params "order_reverse" }}
-					{{ if .Param "order_reverse" }}
-						{{ $sectionPages = $sectionPages.Reverse }}
-					{{ end }}
-				{{ end }}
-
-				{{/* <!-- TODO: pagination --> */}}
-				{{ range $sectionPages }}
-				<div>
-					<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-					{{ if isset .Params "image" }}
-					<a href="{{ .RelPermalink }}">
-						<img src="{{ .Dir | absURL }}{{ .Params.image }}" class="article-banner">
-					</a>
-					{{end}}
-					<div class="article-style"><p>{{ .Render "summary" }}</p></div>
-				</div>
-				{{ end }}
+		{{ $showPageList := .Params.show_pages | default true }}
+		{{ if $showPageList }}
+		{{ if not .IsPage }}
+			<!-- Show list of sections -->
+			{{ with .Sections }}
+				{{ range (.ByParam "order") }}
+				<h1 id="{{ .Section }}" class="dst"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+				{{ .Render "summary" }}
 				{{ end }}
 			{{ end }}
 
 
+			{{/* <!-- Show list of pages --> */}}
+			{{/* <!-- get non-nested pages of current section --> */}}
+			{{ $sectionPages := where .Data.Pages "Section" .Section }}
+
+			{{/* <!-- optional sorting --> */}}
+			{{ if isset .Params "order_by" }}
+				{{/* need '=' operator, otherwise value is only set within the if block */}}
+				{{ $sectionPages = $sectionPages.ByParam (.Param "order_by") }}
+			{{ end }}
+			{{ if isset .Params "order_reverse" }}
+				{{ if .Param "order_reverse" }}
+					{{ $sectionPages = $sectionPages.Reverse }}
+				{{ end }}
+			{{ end }}
+
+			{{/* <!-- TODO: pagination --> */}}
+			{{ range $sectionPages }}
+			<div>
+				<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+				{{ if isset .Params "image" }}
+				<a href="{{ .RelPermalink }}">
+					<img src="{{ .Dir | absURL }}{{ .Params.image }}" class="article-banner">
+				</a>
+				{{end}}
+				<div class="article-style"><p>{{ .Render "summary" }}</p></div>
 			</div>
+			{{ end }}
+			{{ end }}
+		{{ end }}
+
+
 		</div>
+		</div>
+
 		{{ partial "footer.html"  . }}
 
 		<script src="/js/fix.js"></script>

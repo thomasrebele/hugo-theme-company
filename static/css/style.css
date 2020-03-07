@@ -4,8 +4,11 @@ body{
 	float: none !important;
 }
 
-body, header {
-	max-width: 150ex;
+@media screen and (min-width:600px) {
+	.main-column {
+		max-width: 150ex;
+		margin: 0 auto;
+	}
 }
 
 #content {
@@ -27,12 +30,13 @@ body, header {
 }
 
 footer {
-  background: #e5eaee;
+  background-color: #00448b;
+  color: white;
   padding: 20px; 
   text-align: center;
 }
 
-@media screen and (max-width: 30em) {
+@media screen and (max-width: 40em) {
 	#content {
 		margin: 2em;
 	}

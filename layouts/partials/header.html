@@ -26,7 +26,7 @@
 
 {{ $breadcrumb := .Site.Params.breadcrumb | default true }}
 {{ if $breadcrumb }}
-<div  class="breadcrumb">
+<div  class="breadcrumb main-column">
 	{{ partial "breadcrumb" . }}<br/>
 </div>
 {{ end }}
