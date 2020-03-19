@@ -4,8 +4,10 @@
 
 <!--<a href="{{ "" | absURL }}" class="logo"><img class="vcenter" src="{{ "images/logo.png" | absURL }}"/></a>-->
 
-<input id="menu-toggle" type="checkbox">
+<a id="menu-closed" class="menu-button button" href="#menu-closed">{{ i18n "menu" }}</label></a>
+<a id="menu-open" class="menu-button button" href="#menu-open">{{ i18n "menu" }}</label></a>
 
+<div class="menu-container">
 <div class="menu">
 	{{ $currentPage := . }}
 	{{ range .Site.Menus.main }}
@@ -23,6 +25,7 @@
 		{{ end }}
 	{{ end }}-->
 </div>
+</div>
 
 {{ $breadcrumb := .Site.Params.breadcrumb | default true }}
 {{ if $breadcrumb }}
@@ -30,7 +33,5 @@
 	{{ partial "breadcrumb" . }}<br/>
 </div>
 {{ end }}
-
-<label class="menu-button button" for="menu-toggle">{{ i18n "menu" }}</label>
 
 

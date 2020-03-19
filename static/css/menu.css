@@ -86,6 +86,7 @@ nav .breadcrumb * {
 .menu-button {
 	background:white;
 	position:fixed;
+	z-index: 1;
 	right:0;
 	top:0;
 	padding:.2em .5em;
@@ -97,28 +98,57 @@ nav .breadcrumb * {
 	border-radius: 1ex;
 }
 
-#menu-toggle {
+.menu-button {
 	display: none;
 }
 
 .menu {
-	display: flex;
 	justify-content: center;
 	margin: 1em 0em;
 	background-color: #00448b;
 }
 
 @media screen and (max-width: 599px) {
-	#menu-toggle:checked ~ .menu {
-		display: block;
+	.menu-container {
+		display: none;
 	}
 
-	#menu-toggle ~ .menu {
+	.menu {
+		position: fixed;
+		top: 0;
+		margin: 0;
+	}
+
+	#menu-open:target {
+		visibility: hidden;
+	}
+
+	#menu-open:not(target) {
+		visibility: visible;
+	}
+
+	#menu-closed:target {
+		visibility: hidden;
+	}
+
+	#menu-closed:not(target) {
+		visibility: visible;
+	}
+
+	#menu-closed:target ~ .menu-container {
 		display: none;
+	}
+
+	#menu-open:target ~ .menu-container {
+		display: initial;
 	}
 
 	.menu-button {
 		display: block;
+	}
+
+	.main-column {
+		padding-top: 1em;
 	}
 }
 
@@ -142,17 +172,16 @@ nav .breadcrumb * {
 		display: inline-block;
 		width:auto;
 	}
-}
 
-/* sticky navbar */
-
-.menu {
-	position: -webkit-sticky; 
-	position: -moz-sticky; 
-	position: -ms-sticky; 
-	position: -o-sticky; 
-	position: sticky; 
-	top: 0;
+	/* sticky navbar */
+	.menu-container {
+		position: -webkit-sticky; 
+		position: -moz-sticky; 
+		position: -ms-sticky; 
+		position: -o-sticky; 
+		position: sticky; 
+		top: 0;
+	}
 }
 
 :target::before {
@@ -162,6 +191,8 @@ nav .breadcrumb * {
   height: 1ex; /* fixed header height*/
   margin: -1ex 0 0; /* negative fixed header height */
 }
+
+
 
 
 /* IE10+ fix */
