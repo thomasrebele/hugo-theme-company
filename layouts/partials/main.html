@@ -20,7 +20,7 @@
 		  {{ end }}
 
 		{{ if isset .Params "image" }}
-		<img src="{{ .Dir | absURL }}{{ .Params.image }}" class="article-banner">
+		<img src="{ { .Dir | absURL } }{ { .Params.image } }" class="article-banner">
 		{{ end }}
 
 			{{ partial "render.html" . }}
@@ -58,7 +58,7 @@
 				<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 				{{ if isset .Params "image" }}
 				<a href="{{ .RelPermalink }}">
-					<img src="{{ .Dir | absURL }}{{ .Params.image }}" class="article-banner">
+					<img src="{ { .Dir | absURL } }{ { .Params.image } }" class="article-banner">
 				</a>
 				{{end}}
 				<div class="article-style"><p>{{ .Render "summary" }}</p></div>
