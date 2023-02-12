@@ -11,7 +11,7 @@
 <div class="menu">
 	{{ $currentPage := . }}
 	{{ range .Site.Menus.main }}
-	<a class="menu-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ if .Page.Params.link | default false }} {{.Page.Params.link}} {{ else }} {{.URL}} {{end}}" title="{{ .Title }}">{{ .Name }}</a>
+	<a class="menu-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ if .Page.Params.start | default false }} {{ "." | relURL }} {{ else }} {{.URL}} {{end}}" title="{{ .Title }}">{{ .Name }}</a>
 	{{ end }}
 	<!--{{ if eq 0 (len .Sections) }}
 		NONE
