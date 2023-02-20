@@ -19,6 +19,10 @@
 			  <h1>{{ .Title }}</h1>
 		  {{ end }}
 
+		{{ if isset .Params "date" }}
+		<div class="article-date">Veröffentlicht am {{ .Date | time.Format ":date_medium" }}</div>
+		{{ end }}
+
 		{{ if isset .Params "image" }}
 		<img src="{ { .Dir | absURL } }{ { .Params.image } }" class="article-banner">
 		{{ end }}
@@ -61,6 +65,7 @@
 					<img src="{ { .Dir | absURL } }{ { .Params.image } }" class="article-banner">
 				</a>
 				{{end}}
+				<div class="article-date">Veröffentlicht am {{ .Date | time.Format ":date_medium" }}</div>
 				<div class="article-style"><p>{{ .Render "summary" }}</p></div>
 			</div>
 			{{ end }}

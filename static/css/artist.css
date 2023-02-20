@@ -111,5 +111,7 @@ header, footer {
   width: 90%;
   margin: 0 auto; }
 
-
+.article-date {
+  color: gray;
+}
 
